@@ -1,10 +1,19 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import {Module} from '@nestjs/common';
+import {PromotionModule} from './promotion/promotion.module';
+import {TypeOrmModule} from "@nestjs/typeorm";
+import {PromotionCodeInterface} from "./promotion/interfaces/promotion-code.interface";
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        TypeOrmModule.forRoot({
+            type: 'mongodb',
+            host: process.env.DB_HOST,
+            database: 'promotion',
+            entities: [PromotionCodeInterface],
+            synchronize: true,
+        }),
+        PromotionModule
+    ],
 })
-export class AppModule {}
+export class AppModule {
+}

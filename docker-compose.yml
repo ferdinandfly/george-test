@@ -1,18 +1,18 @@
 version: "3"
+
 services:
   back_app:
-    depends_on:
-      - db
     restart: always
     build: .
     ports:
       - "8080:3000"
     environment:
-      - DB_URL=mongodb://db_mongo
+      - DB_HOST=db_mongo
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-
+    depends_on:
+      - db
   db:
     image: mongo
     container_name: db_mongo
@@ -22,4 +22,4 @@ services:
       - "27017:27017"
 
 volumes:
-  local-nest-mongodata:
+  local-nest-mongodata: {}
