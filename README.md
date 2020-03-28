@@ -42,6 +42,11 @@ $ npm run init
 
 it will start the docker with mongo DB.
 
+# access :
+http://localhost:8080
+
+# api Swaager:
+http://localhost:8080/api
 
 ## Test
 
