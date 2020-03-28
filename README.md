@@ -38,14 +38,10 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ npm run init
 
-# watch mode
-$ npm run start:dev
+it will start the docker with mongo DB.
 
-# production mode
-$ npm run start:prod
-```
 
 ## Test
 
