@@ -69,6 +69,8 @@ export class PromotionService {
                 ))) {
                 return false;
             }
+        }else if (restriction.or){
+            return false;
         }
 
         return true;
